@@ -6,10 +6,13 @@ int prompt(void)
 	char input[100];
 	char *arg[] = {"/bin/ls", NULL};
 	int status;
+	char *prompt = "#cisfun$ ";
 
-	printf("#cisfun$ ");
-	while (fgets(input, 100, stdin) != NULL)
+	while (1)
 	{
+		write(STDOUT_FILENO, prompt, 9);
+		if(fgets(input, 100, stdin) == NULL)
+			break;
 		input[strcspn(input, "\n")] = '\0';
 		my_pid = fork();
 		if (my_pid < 0)
@@ -28,7 +31,6 @@ int prompt(void)
 		{
 			wait(&status);
 		}
-		printf("#cisfun$ ");
 	}
 	return (0);
 }

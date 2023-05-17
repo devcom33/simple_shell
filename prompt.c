@@ -1,5 +1,8 @@
 #include "main.h"
-
+/**
+ * prompt - create a custom shell
+ * Return: 0
+ */
 int prompt(void)
 {
 	pid_t my_pid;
@@ -11,13 +14,15 @@ int prompt(void)
 	while (1)
 	{
 		write(STDOUT_FILENO, prompt, 9);
-		if(fgets(input, 100, stdin) == NULL)
+
+		if (fgets(input, 100, stdin) == NULL)
 			break;
 		input[strcspn(input, "\n")] = '\0';
 		my_pid = fork();
+
 		if (my_pid < 0)
 		{
-			perror("Error");
+			perror("Process Error");
 			return (1);
 		}
 		else if (my_pid == 0)

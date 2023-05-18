@@ -6,24 +6,26 @@
 int prompt(void)
 {
 	pid_t my_pid;
-	char input[100];
+	char *input = NULL;
+	size_t bsize = 100;
 	char *arg[] = {"/bin/ls", NULL};
 	int status;
 	char *prompt = "#cisfun$ ";
+	int len;
 
 	while (1)
 	{
 		write(STDOUT_FILENO, prompt, 9);
 
-		if (fgets(input, 100, stdin) == NULL)
+		if ((len = getline(&input, &bsize, stdin)) == -1)
 			break;
-		input[strcspn(input, "\n")] = '\0';
+		input[len - 1] = '\0';
 		my_pid = fork();
 
 		if (my_pid < 0)
 		{
 			perror("Process Error");
-			return (1);
+			exit(98);
 		}
 		else if (my_pid == 0)
 		{

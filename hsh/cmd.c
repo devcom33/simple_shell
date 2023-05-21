@@ -67,13 +67,14 @@ char *_strcat(char *dest, char *src)
 }
 void handle_path(char **rgv, char *cmd)
 {
-	rgv[0] = malloc(6);
+	char *path;
+	path = malloc(6);
 
-	_strcpy(rgv[0], "/bin/");
+	_strcpy(path, "/bin/");
 
 	if (cmd[0] != '/')
 	{
-               rgv[0] = _strcat(rgv[0], cmd);
+               rgv[0] = _strcat(path, cmd);
 	}
 }
 void prompt(char **arv, char **envi)

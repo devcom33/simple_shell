@@ -20,7 +20,7 @@ int prompt(void)
 		if ((len = getline(&input, &bsize, stdin)) == -1)
 			break;
 		input[len - 1] = '\0';
-		my_pid = fork();
+		my_pid = fork();/* create child process*/
 
 		if (my_pid < 0)
 		{
@@ -41,3 +41,15 @@ int prompt(void)
 	}
 	return (0);
 }
+/*
+int check_path(char *arg, delim)
+{
+	int token = strtok(arg, delim);
+
+	while (token != NULL)
+	{
+		token = strtok(NULL, delim);
+	}
+	return (0);
+}
+*/

@@ -8,7 +8,7 @@ int prompt(void)
 	pid_t my_pid;
 	char *input = NULL;
 	size_t bsize = 100;
-	char *arg[] = {"/bin/ls", NULL};
+	char *arg[] = {input, NULL};
 	int status;
 	char *prompt = "#cisfun$ ";
 	int len;

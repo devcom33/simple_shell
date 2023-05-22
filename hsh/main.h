@@ -12,4 +12,5 @@ int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 void handle_path(char **rgv, char *cmd);
 char *_strcpy(char *dest, char *src);
+int _strlen(char *s);
 #endif

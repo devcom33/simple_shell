@@ -1,5 +1,20 @@
 #include "main.h"
 /**
+ * _strlen - length of a string
+ * @s: string
+ * Return: length
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (*(s + i) != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+/**
  *  * _strcpy - copy a string
  *   * @dest: dest string arg
  *    * @src: source arg
@@ -120,9 +135,10 @@ void prompt(char **arv, char **envi)
 		if (mychild == 0)
 		{
 			if (execve(rgv[0], rgv, envi) == -1)
-			{	/*write(4, arv[0], 4);*/
-				/*perror(":No such a file or directory");*/
-				printf("%s No such a file or directory\n", arv[0]);
+			{
+				write(STDOUT_FILENO, arv[0], _strlen(arv[0]));
+				write(STDOUT_FILENO, " :No such a file or directory", _strlen(":No such a file or directory"));
+				write(STDOUT_FILENO, "\n", 1);
 			}
 		}
 		else
@@ -130,7 +146,6 @@ void prompt(char **arv, char **envi)
 	}
 	free(cmd), exit(EXIT_SUCCESS);
 }
-
 
 int main(int arc, char **arv, char **envi)
 {

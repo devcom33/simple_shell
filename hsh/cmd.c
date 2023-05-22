@@ -15,11 +15,11 @@ int _strlen(char *s)
 	return (i);
 }
 /**
- *  * _strcpy - copy a string
- *   * @dest: dest string arg
- *    * @src: source arg
- *     * Return: string value
- *      */
+ * strcpy - copy a string
+ * @dest: dest string arg
+ * @src: source arg
+ * Return: string value
+ */
 char *_strcpy(char *dest, char *src)
 {
 	int i, len = 0;
@@ -120,6 +120,7 @@ void prompt(char **arv, char **envi)
 		}
 		x = 0;
 		rgv[x] = strtok(cmd, " \n");
+		handle_exit(cmd);
 		handle_path(rgv, cmd);
 		while (rgv[x])
 		{	

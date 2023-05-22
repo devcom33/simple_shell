@@ -80,18 +80,6 @@ char *_strcat(char *dest, char *src)
         dest[lend + len] = '\0';
         return (dest);
 }
-void handle_path(char **rgv, char *cmd)
-{
-	char *path;
-	path = malloc(6);
-
-	_strcpy(path, "/bin/");
-
-	if (cmd[0] != '/')
-	{
-               rgv[0] = _strcat(path, cmd);
-	}
-}
 void prompt(char **arv, char **envi)
 {
 	pid_t mychild;
@@ -146,13 +134,4 @@ void prompt(char **arv, char **envi)
 			wait(&stat);
 	}
 	free(cmd), exit(EXIT_SUCCESS);
-}
-
-int main(int arc, char **arv, char **envi)
-{
-	if (arc == 1)
-	{
-		prompt(arv, envi);
-	}
-	return (0);
 }

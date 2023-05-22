@@ -7,6 +7,10 @@ void handle_path(char **rgv, char *cmd)
 	char *path;
 	path = malloc(6);
 
+	if (!path)
+	{
+		return;
+	}
  	_strcpy(path, "/bin/");
 
 	if (cmd[0] != '/')

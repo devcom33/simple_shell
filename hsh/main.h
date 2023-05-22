@@ -6,7 +6,11 @@
 #include <string.h>
 #include <sys/wait.h>
 #define MAX_C 10
-/*int prompt(void);*/
+typedef struct list_path
+{
+	char *direc;
+	struct list_path *next;
+} list_path;
 void prompt(char **arv, char **envi);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);

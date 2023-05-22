@@ -93,7 +93,7 @@ void handle_path(char **rgv, char *cmd)
 	}
 }
 void prompt(char **arv, char **envi)
-{	
+{
 	pid_t mychild;
 	size_t n;
 	ssize_t num_c;
@@ -108,7 +108,7 @@ void prompt(char **arv, char **envi)
 			write(STDOUT_FILENO,"$ ", 2);
 		num_c = getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/
-		{ 
+		{
 			free(cmd);
 			exit(EXIT_FAILURE);
 		}
@@ -123,7 +123,7 @@ void prompt(char **arv, char **envi)
 		handle_exit(cmd);
 		handle_path(rgv, cmd);
 		while (rgv[x])
-		{	
+		{
 			x++;
 			rgv[x] = strtok(NULL, " \n");
 		}
@@ -153,6 +153,6 @@ int main(int arc, char **arv, char **envi)
 	if (arc == 1)
 	{
 		prompt(arv, envi);
-	}	
+	}
 	return (0);
 }

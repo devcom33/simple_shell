@@ -1,7 +1,11 @@
 #include "main.h"
 
-int main(void)
+int main(int arc, char **arv, char **envp)
 {
-	prompt();
+	arv = arv;
+	if (arc == 1)
+	{
+		prompt(arv, envp);
+	}
 	return (0);
 }

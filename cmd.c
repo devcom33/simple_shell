@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * prompt - a shell using c
- * @argv: argument by user
+ * @arv: argument by user
  * @envp: envirement variable argument
  */
 void prompt(char **arv, char **envp)

@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * prompt - a shell using c
  * @arv: argument by user

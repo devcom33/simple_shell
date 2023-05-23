@@ -8,7 +8,7 @@ void prompt(char **arv, char **envp)
 {
 	size_t n;
 	ssize_t num_c;
-	char cmd[10], *rgv[MAX_C];
+	char *cmd, *rgv[MAX_C];
 	int x/*, stat,path*/;
 
 	/*cmd = malloc(sizeof(char) * MAX_C);*/

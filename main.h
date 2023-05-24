@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <signal.h>
 #define MAX_C 10
 /**
  * struct data_enum - structure that contains vars
@@ -25,5 +26,6 @@ void runcmd(char **rgv, char **arv, char **envp);
 char *trim(char *cmd);
 char *_strncpy(char *dest, char *src, int n);
 /*void geterror(int cnt, char **arv, char *cmd);*/
+void geterror(denum *n, char **arv, char *cmd);
 /*void search_path(char **rgv, char *cmd, char **envp);*/
 #endif

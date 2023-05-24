@@ -15,7 +15,7 @@ void prompt(char **arv, char **envp)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, ":) ", 2);
+			write(STDOUT_FILENO, ":) ", 3);
 		num_c = getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/
 		{

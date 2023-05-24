@@ -1,5 +1,12 @@
 #include "main.h"
 /**
+ */
+void sig_handler(int num)
+{
+	(void)num;
+	write(STDOUT_FILENO, "\n$ ", _strlen("\n$ "));
+}
+/**
  * prompt - a shell using c
  * @arv: argument by user
  * @envp: envirement variable argument
@@ -15,6 +22,7 @@ void prompt(char **arv, char **envp)
 	{
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", _strlen("$ "));
+		signal(SIGINT, sig_handler);
 		num_c = getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/
 		{

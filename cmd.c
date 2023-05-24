@@ -24,6 +24,8 @@ void prompt(char **arv, char **envp)
 		}
 		if (cmd[num_c - 1] == '\n')
 			cmd[num_c - 1] = '\0';
+		if (_strlen(cmd) == 0)
+			continue;
 		x = 0;
 		rgv[x] = strtok(cmd, " \n");
 		handle_exit(cmd);
@@ -34,8 +36,6 @@ void prompt(char **arv, char **envp)
 			rgv[x] = strtok(NULL, " \n");
 		}
 		runcmd(rgv, arv, envp); /* envp */
-		free(*rgv);
-		free(cmd);
 	}
 	exit(EXIT_SUCCESS);
 }

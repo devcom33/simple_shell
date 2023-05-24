@@ -22,8 +22,8 @@ void runcmd(char **rgv, char **arv, char **envp)
 			if (execve(rgv[0], rgv, envp) == -1)
 			{
 				write(STDOUT_FILENO, arv[0], _strlen(arv[0]));
-				write(STDOUT_FILENO, ": No such a file or directory",
-				_strlen(": No such a file or directory"));
+				write(STDOUT_FILENO, ": No such file or directory",
+				_strlen(": No such file or directory"));
 				write(STDOUT_FILENO, "\n", 1);
 			}
 			exit(EXIT_FAILURE);

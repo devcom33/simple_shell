@@ -15,7 +15,7 @@ void prompt(char **arv, char **envp)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "#cisfun$ ", _strlen("#cisfun$ "));
+			write(STDOUT_FILENO, "$ ", _strlen("$ "));
 		num_c = getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/
 		{
@@ -26,15 +26,14 @@ void prompt(char **arv, char **envp)
 			cmd[num_c - 1] = '\0';
 		x = 0;
 		rgv[x] = strtok(cmd, " \n");
-		/*handle_exit(cmd);*/
-		/*handle_path(rgv, cmd);*/
+		handle_exit(cmd);
+		handle_path(rgv, cmd);
 		while (rgv[x])
 		{
 			x++;
 			rgv[x] = strtok(NULL, " \n");
 		}
-		envp = envp;
-		runcmd(rgv, arv, NULL); /* envp */
+		runcmd(rgv, arv, envp); /* envp */
 	}
 	free(rgv);
 	free(cmd);

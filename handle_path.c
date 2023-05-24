@@ -11,6 +11,7 @@ char *handle_path(char **rgv, char *cmd)
 	path = malloc(6);
 	if (!path)
 	{
+		free(path);
 		return (NULL);
 	}
 	_strcpy(path, "/bin/");

@@ -4,7 +4,7 @@
  * @rgv: rgv argument
  * @cmd: command set by the user
  */
-void handle_path(char **rgv, char *cmd)
+char *handle_path(char **rgv, char *cmd)
 {
 	char *path;
 
@@ -18,7 +18,8 @@ void handle_path(char **rgv, char *cmd)
 	if (cmd[0] != '/')
 	{
 		rgv[0] = _strcat(path, cmd);
+		return (rgv[0]);
 	}
-	else
-		free(path);
+	free(path);
+	return (cmd);
 }

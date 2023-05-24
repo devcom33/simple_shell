@@ -29,6 +29,11 @@ void prompt(char **arv, char **envp)
 			free(cmd);
 			exit(EXIT_SUCCESS);
 		}
+		if (strstr(cmd , "|"))
+		{
+			handle_pipe(cmd);
+			continue;
+		}
 		if (cmd[num_c - 1] == '\n')
 			cmd[num_c - 1] = '\0';
 		cmd = trim(cmd);

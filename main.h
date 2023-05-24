@@ -27,5 +27,6 @@ char *trim(char *cmd);
 char *_strncpy(char *dest, char *src, int n);
 /*void geterror(int cnt, char **arv, char *cmd);*/
 void geterror(denum *n, char **arv, char *cmd);
+void handle_pipe(char* cmd);
 /*void search_path(char **rgv, char *cmd, char **envp);*/
 #endif

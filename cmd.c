@@ -6,13 +6,11 @@
  */
 void prompt(char **arv, char **envp)
 {
-	size_t n;
-	ssize_t num_c;
-	char *cmd, *rgv[MAX_C];
+	size_t n = 0;
+	ssize_t num_c = 0;
+	char *cmd = NULL, *rgv[MAX_C];
 	int x/*, stat,path*/;
-	/*denum *c = malloc(sizeof(struct denum));*/
 
-	/*cmd = malloc(sizeof(char) * MAX_C);*/
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
@@ -20,7 +18,7 @@ void prompt(char **arv, char **envp)
 		num_c = getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/
 		{
-			/*free(cmd);*/
+			free(cmd);
 			exit(EXIT_SUCCESS);
 		}
 		if (cmd[num_c - 1] == '\n')
@@ -40,5 +38,5 @@ void prompt(char **arv, char **envp)
 		runcmd(rgv, arv, envp); /* envp */
 		/*c->cnt += 1;*/
 	}
-	exit(EXIT_SUCCESS);
+	free(cmd);
 }

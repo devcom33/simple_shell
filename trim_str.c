@@ -13,9 +13,11 @@ char *trim(char *cmd)
 	if (!cpcmd)
 	{
 		perror("Allocation Failed\n");
+		free(cpcmd);
 		exit(EXIT_FAILURE);
 	}
 	_strncpy(cpcmd, cmd + i, len);
+	free (cmd);
 
 	return (cpcmd);
 }

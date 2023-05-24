@@ -27,7 +27,7 @@ void runcmd(char **rgv, char **arv, char **envp)
 				write(STDOUT_FILENO, "\n", 1);
 			/*geterror(c -> cnt, arv, cmd);*/
 		}
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 	else
 		wait(&stat);

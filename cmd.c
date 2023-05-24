@@ -25,6 +25,7 @@ void prompt(char **arv, char **envp)
 		}
 		if (cmd[num_c - 1] == '\n')
 			cmd[num_c - 1] = '\0';
+		cmd = trim(cmd);
 		if (_strlen(cmd) == 0)
 			continue;
 		x = 0;

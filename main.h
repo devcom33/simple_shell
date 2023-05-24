@@ -6,6 +6,7 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <signal.h>
+#include <stdbool.h>
 #define MAX_C 10
 /**
  * struct data_enum - structure that contains vars

@@ -33,6 +33,7 @@ void prompt(char **arv, char **envp)
 			x++;
 			rgv[x] = strtok(NULL, " \n");
 		}
+		envp = envp;
 		runcmd(rgv, arv, NULL); /* envp */
 	}
 	free(rgv);

@@ -70,6 +70,7 @@ void prompt(char **arv, char **envp)
 		else
 			wait(&stat);
 
-		}
-		free(cmd);
+	}
+	free(c);
+	free(cmd);
 }

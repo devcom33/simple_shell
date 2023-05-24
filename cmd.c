@@ -20,7 +20,7 @@ void prompt(char **arv, char **envp)
 		num_c = getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/
 		{
-			free(cmd);
+			/*free(cmd);*/
 			exit(EXIT_SUCCESS);
 		}
 		if (cmd[num_c - 1] == '\n')

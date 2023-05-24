@@ -8,7 +8,7 @@ char *handle_path(char **rgv, char *cmd)
 {
 	char *path;
 
-	path = malloc(6);
+	path = malloc(_strlen("/bin/") + _strlen(cmd) + 1);
 	if (!path)
 	{
 		free(path);

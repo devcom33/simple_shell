@@ -17,22 +17,19 @@ void prompt(char **arv, char **envp)
 	ssize_t num_c = 0;
 	char *cmd = NULL, *rgv[MAX_C];
 	int x/*, stat,path*/;
+	bool flg = false;
 
-	while (1)
+	while (1 & !flg)
 	{
-		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "$ ", _strlen("$ "));
+		if (isatty(STDIN_FILENO) == 0)
+			flg = true;
+		write(STDOUT_FILENO, "$ ", _strlen("$ "));
 		signal(SIGINT, sig_handler);
 		num_c = getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/
 		{
 			free(cmd);
 			exit(EXIT_SUCCESS);
-		}
-		if (strstr(cmd , "|"))
-		{
-			handle_pipe(cmd);
-			continue;
 		}
 		if (cmd[num_c - 1] == '\n')
 			cmd[num_c - 1] = '\0';

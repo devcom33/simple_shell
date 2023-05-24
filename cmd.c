@@ -10,6 +10,7 @@ void prompt(char **arv, char **envp)
 	ssize_t num_c;
 	char *cmd, *rgv[MAX_C];
 	int x/*, stat,path*/;
+	/*denum *c = malloc(sizeof(struct denum));*/
 
 	/*cmd = malloc(sizeof(char) * MAX_C);*/
 	while (1)
@@ -35,7 +36,8 @@ void prompt(char **arv, char **envp)
 			x++;
 			rgv[x] = strtok(NULL, " \n");
 		}
-		runcmd(rgv, arv, cmd, envp); /* envp */
+		runcmd(rgv, arv, envp); /* envp */
+		/*c->cnt += 1;*/
 	}
 	exit(EXIT_SUCCESS);
 }

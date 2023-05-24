@@ -19,4 +19,5 @@ void handle_path(char **rgv, char *cmd)
 	{
 		rgv[0] = _strcat(path, cmd);
 	}
+	free(path);
 }

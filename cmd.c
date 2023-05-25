@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * sig_handle - handler cntrl c
+ * sig_handler - handler cntrl c
  * @num: num argument
  */
 void sig_handler(int num)

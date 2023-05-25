@@ -16,7 +16,7 @@ char *trim(char *cmd)
 	if (!cpcmd)
 	{
 		perror("Allocation Failed\n");
-		return (NULL)
+		return (NULL);
 	}
 	_strncpy(cpcmd, cmd + i, len);
 

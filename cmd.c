@@ -23,6 +23,11 @@ void prompt(char **arv, char **envp, bool flg)
 	int x, stat/*,path*/;
 	denum *c = malloc(sizeof(struct denum));
 
+	if (!c)
+	{
+		perror("allocation F");
+		exit(EXIT_FAILURE);
+	}
 	c->cnt = 0;
 	while (1)
 	{

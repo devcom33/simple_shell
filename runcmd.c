@@ -30,10 +30,19 @@ void runcmd(char **rgv, char **arv, char **envp)
 			/*geterror(c -> cnt, arv, cmd);*/
 			exit(2);
 		}
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 	else
 	{
 		wait(&stat);
+		if (stat == -1)
+			perror("faild handling child process");
+		else if (stat != 0)
+		{
+			perror("Command execution failed");
+			
+		}
+	
+	
 	}
 }

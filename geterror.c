@@ -69,8 +69,6 @@ void geterror(denum *n, char **arv, char *cmd)
 	errmsg = malloc(len);
 	if (!errmsg)
 	{
-		free(errmsg);
-		free(cnt_str);
 		return;
 	}
 	_strcpy(errmsg, arv[0]);

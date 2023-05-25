@@ -1,5 +1,8 @@
 #include "main.h"
 /**
+ * trim - remove space
+ * @cmd: comand
+ * Return: cmmand
  */
 char *trim(char *cmd)
 {
@@ -17,7 +20,7 @@ char *trim(char *cmd)
 		exit(EXIT_FAILURE);
 	}
 	_strncpy(cpcmd, cmd + i, len);
-	free (cmd);
+	free(cmd);
 
 	return (cpcmd);
 }

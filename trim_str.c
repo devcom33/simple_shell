@@ -19,6 +19,8 @@ char *trim(char *cmd)
 		return (NULL);
 	}
 	_strncpy(cpcmd, cmd + i, len);
-
-	return (cpcmd);
+	cpcmd[len] = '\0';
+	_strcpy(cmd, cpcmd);
+	free(cpcmd);
+	return (cmd);
 }

@@ -80,8 +80,7 @@ void prompt(char **arv, char **envp, bool flg)
 			perror("wait err");
 			exit(EXIT_FAILURE);
 		}
-
 	}
-	free(c);
 	free(cmd);
+	free(c);
 }

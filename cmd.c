@@ -11,19 +11,17 @@ void sig_handler(int num)
  * @arv: argument by user
  * @envp: envirement variable argument
  */
-void prompt(char **arv, char **envp)
+void prompt(char **arv, char **envp, int flg)
 {
 	size_t n = 0;
 	ssize_t num_c = 0;
 	char *cmd = NULL, *rgv[MAX_C];
 	int x/*, stat,path*/;
-	bool flg = false;
 
 	while (1 & !flg)
 	{
-		if (isatty(STDIN_FILENO) == 0)
-			flg = true;
-		write(STDOUT_FILENO, "$ ", _strlen("$ "));
+		if (flg & isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "$ ", _strlen("$ "));
 		signal(SIGINT, sig_handler);
 		num_c = getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/

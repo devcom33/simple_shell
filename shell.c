@@ -10,7 +10,10 @@ int main(int arc, char **arv, char **envp)
 {
 	if (arc == 1)
 	{
-		prompt(arv, envp);
+		if (isatty(STDIN_FILENO) == 0)
+			prompt(arv, envp, 0);
+		else
+			prompt(arv, envp, 1);
 	}
 	return (0);
 }

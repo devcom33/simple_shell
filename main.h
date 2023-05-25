@@ -16,7 +16,7 @@ typedef struct denum
 {
 	int cnt;
 } denum;
-void prompt(char **arv, char **envp);
+void prompt(char **arv, char **envp, int flg);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *handle_path(char **rgv, char *cmd);

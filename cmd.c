@@ -26,6 +26,7 @@ void prompt(char **arv, char **envp, bool flg)
 	c->cnt = 0;
 	while (1)
 	{
+		c->cnt += 1;
 		if (flg && isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", _strlen("$ "));
 		signal(SIGINT, sig_handler);
@@ -65,7 +66,6 @@ void prompt(char **arv, char **envp, bool flg)
 			write(STDOUT_FILENO, ": No such file or directory",
 			_strlen(": No such file or directory"));
 			write(STDOUT_FILENO, "\n", 1);*/
-				c->cnt += 1;
 				geterror(c, arv, cmd);
 			}
 			exit(EXIT_FAILURE);

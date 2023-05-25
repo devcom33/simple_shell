@@ -46,7 +46,7 @@ void prompt(char **arv, char **envp, bool flg)
 			x++;
 			rgv[x] = strtok(NULL, " \n");
 		}
-		runcmd(rgv, arv, envp); /* envir */
+		runcmd(rgv, arv, cmd, envp); /* envir */
 	}
 	free(cmd);
 }

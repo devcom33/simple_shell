@@ -5,11 +5,11 @@
  * @arv: arv argument
  * @envp: envp argument
  */
-void runcmd(char **rgv, char **arv, char **envp)
+void runcmd(char **rgv, char **arv, char *cmd, char **envp)
 {
 	pid_t mychild;
 	int stat;
-	/*denum *c = malloc(sizeof(struct denum));*/
+	denum *c = malloc(sizeof(struct denum));
 
 	mychild = fork();
 
@@ -20,14 +20,14 @@ void runcmd(char **rgv, char **arv, char **envp)
 	}
 	if (mychild == 0)
 	{
-
 		if (execve(rgv[0], rgv, envp) == (-1))
 		{
-			write(STDOUT_FILENO, arv[0], _strlen(arv[0]));
+			/*write(STDOUT_FILENO, arv[0], _strlen(arv[0]));
 			write(STDOUT_FILENO, ": No such file or directory",
 			_strlen(": No such file or directory"));
-			write(STDOUT_FILENO, "\n", 1);
-			/*geterror(c -> cnt, arv, cmd);*/
+			write(STDOUT_FILENO, "\n", 1);*/
+			c->cnt += 1;
+			geterror(c, arv, cmd);
 		}
 		exit(EXIT_FAILURE);
 	}

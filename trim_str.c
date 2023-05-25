@@ -12,7 +12,7 @@ char *trim(char *cmd)
 	while (cmd[i] == ' ')
 		i++;
 	len = _strlen(cmd) - i + 1;
-	cpcmd = malloc(len);
+	cpcmd = malloc(len + 1);
 	if (!cpcmd)
 	{
 		perror("Allocation Failed\n");

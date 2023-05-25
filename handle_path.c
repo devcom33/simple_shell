@@ -3,6 +3,7 @@
  * handle_path - handle the path function
  * @rgv: rgv argument
  * @cmd: command set by the user
+ * Return: command for exec
  */
 char *handle_path(char **rgv, char *cmd)
 {

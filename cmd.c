@@ -1,5 +1,7 @@
 #include "main.h"
 /**
+ * sig_handler - handler cntrl c
+ * @num: num argument
  */
 void sig_handler(int num)
 {
@@ -10,6 +12,7 @@ void sig_handler(int num)
  * prompt - a shell using c
  * @arv: argument by user
  * @envp: envirement variable argument
+ * @flg: flag argument for mode
  */
 void prompt(char **arv, char **envp, bool flg)
 {
@@ -43,7 +46,7 @@ void prompt(char **arv, char **envp, bool flg)
 			x++;
 			rgv[x] = strtok(NULL, " \n");
 		}
-		runcmd(rgv, arv, envp); /* envp */
+		runcmd(rgv, arv, envp); /* envir */
 	}
 	free(cmd);
 }

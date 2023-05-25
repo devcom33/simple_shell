@@ -34,13 +34,13 @@ char *_strncpy(char *dest, char *src, int n);
 void geterror(denum *n, char **arv, char *cmd);
 /*void search_path(char **rgv, char *cmd, char **envp);*/
 char *get_path(char *cmd);
-char *_getenv(char *name);
+/*char *_getenv(char *name);*/
 char **tokenize_env(char *path);
 extern char **environ;
 int _strncmp(char *str1, char *str2, int n);
 
 /**
-*
+/*
  *  * struct list_s - A new struct type defining a linked list.
  *   * @dir: A directory path.
  *    * @next: A pointer to another struct list_s.

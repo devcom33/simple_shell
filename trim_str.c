@@ -20,6 +20,7 @@ char *trim(char *cmd)
 		exit(EXIT_FAILURE);
 	}
 	_strncpy(cpcmd, cmd + i, len);
+	free(cmd);
 
 	return (cpcmd);
 }

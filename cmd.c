@@ -20,7 +20,6 @@ void prompt(char **arv, char **envp, bool flg)
 	ssize_t num_c = 0;
 	char *cmd = NULL, *rgv[MAX_C];
 	int x/*, stat,path*/;
-	char *pipe_cmd, *trim_cmd;
 
 	while (1)
 	{
@@ -35,26 +34,19 @@ void prompt(char **arv, char **envp, bool flg)
 		}
 		if (cmd[num_c - 1] == '\n')
 			cmd[num_c - 1] = '\0';
-		pipe_cmd = strtok(cmd, "|");
-		while (pipe_cmd != NULL)
+		cmd = trim(cmd);
+		if (_strlen(cmd) == 0)
+			continue;
+		x = 0;
+		rgv[x] = strtok(cmd, " \n");
+		handle_exit(cmd);
+		handle_path(rgv, cmd);
+		while (rgv[x])
 		{
-			trim_cmd = trim(cmd);
-			if (_strlen(trim_cmd) != 0)
-			{
-				x = 0;
-				rgv[x] = strtok(trim_cmd, " \n");
-				handle_exit(rgv[x]);
-				handle_path(rgv, rgv[x]);
-				while (rgv[x])
-				{
-					x++;
-					rgv[x] = strtok(NULL, " \n");
-				}
-				runcmd(rgv, arv, envp); /* envir */
-			}
-			pipe_cmd = strtok(NULL, "|");
+			x++;
+			rgv[x] = strtok(NULL, " \n");
 		}
+		runcmd(rgv, arv, envp); /* envir */
 	}
-	free(pipe_cmd);
 	free(cmd);
 }

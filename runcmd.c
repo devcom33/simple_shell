@@ -34,15 +34,10 @@ void runcmd(char **rgv, char **arv, char **envp)
 	}
 	else
 	{
-		wait(&stat);
-		if (stat == -1)
-			perror("faild handling child process");
-		else if (stat != 0)
+		if (waitpid(mychild, &stat, 0) == -1)
 		{
-			perror("Command execution failed");
-			
+			perror("Err (wait)");
+			exit(EXIT_FAILURE);
 		}
-	
-	
 	}
 }

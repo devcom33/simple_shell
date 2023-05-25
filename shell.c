@@ -8,12 +8,7 @@
  */
 int main(int arc, char **arv, char **envp)
 {
-	if (arc == 1)
-	{
-		if (isatty(STDIN_FILENO) == 1)
-			prompt(arv, envp, 0);
-		else
-			prompt(arv, envp, 1);
-	}
+	bool interactive = (argc == 1 && isatty(STDIN_FILENO));
+	prompt(argv, envp, interactive);
 	return (0);
 }

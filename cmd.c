@@ -11,7 +11,7 @@ void sig_handler(int num)
  * @arv: argument by user
  * @envp: envirement variable argument
  */
-void prompt(char **arv, char **envp, int flg)
+void prompt(char **arv, char **envp, bool flg)
 {
 	size_t n = 0;
 	ssize_t num_c = 0;
@@ -20,7 +20,7 @@ void prompt(char **arv, char **envp, int flg)
 
 	while (1)
 	{
-		if (flg || isatty(STDIN_FILENO))
+		if (flg && isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", _strlen("$ "));
 		signal(SIGINT, sig_handler);
 		num_c = getline(&cmd, &n, stdin);

@@ -26,6 +26,10 @@ void handle_exit(char *cmd);
 void runcmd(char **rgv, char **arv, char **envp);
 char *trim(char *cmd);
 char *_strncpy(char *dest, char *src, int n);
+char *get_path(char *cmd);
+char *_getenv(char *name);
+char **tokenize_env(char *path);
+extern char **environ;
 /*void geterror(int cnt, char **arv, char *cmd);*/
 void geterror(denum *n, char **arv, char *cmd);
 /*void search_path(char **rgv, char *cmd, char **envp);*/

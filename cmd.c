@@ -20,7 +20,7 @@ void prompt(char **arv, char **envp, int flg)
 
 	while (1)
 	{
-		if (flg && isatty(STDIN_FILENO))
+		if (flg || isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", _strlen("$ "));
 		signal(SIGINT, sig_handler);
 		num_c = getline(&cmd, &n, stdin);

@@ -33,7 +33,9 @@ char *_itoa(int num)
 
 	buff = malloc(len + 1);
 	if (!buff)
+	{
 		return (NULL);
+	}
 	buff[len] = '\0';
 	if (num < 0)
 	{
@@ -48,8 +50,7 @@ char *_itoa(int num)
 		*(buff + len) = (n % 10) + '0';
 		n /= 10;
 		len--;
-	}
-	while (n > 0);
+	}while (n > 0);
 	return (buff);
 }
 /**

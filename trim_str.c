@@ -12,15 +12,13 @@ char *trim(char *cmd)
 	while (cmd[i] == ' ')
 		i++;
 	len = _strlen(cmd) - i + 1;
-	cpcmd = malloc(len);
+	cpcmd = malloc(len + 1);
 	if (!cpcmd)
 	{
 		perror("Allocation Failed\n");
-		free(cpcmd);
-		exit(EXIT_FAILURE);
+		return (NULL)
 	}
 	_strncpy(cpcmd, cmd + i, len);
-	free(cmd);
 
 	return (cpcmd);
 }

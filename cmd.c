@@ -16,29 +16,19 @@ void sig_handler(int num)
  */
 void prompt(char **arv, char **envp, bool flg)
 {
-	pid_t mychild;
 	size_t n = 0;
 	ssize_t num_c = 0;
 	char *cmd = NULL, *rgv[MAX_C];
-	int x, stat/*,path*/;
-	denum *c = malloc(sizeof(struct denum));
+	int x/*, stat,path*/;
 
-	if (!c)
-	{
-		perror("allocation F");
-		exit(EXIT_FAILURE);
-	}
-	c->cnt = 0;
 	while (1)
 	{
-		c->cnt += 1;
 		if (flg && isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", _strlen("$ "));
 		signal(SIGINT, sig_handler);
 		num_c = getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/
 		{
-			write(STDOUT_FILENO, "\n", 1);
 			free(cmd);
 			exit(EXIT_SUCCESS);
 		}
@@ -57,6 +47,7 @@ void prompt(char **arv, char **envp, bool flg)
 			x++;
 			rgv[x] = strtok(NULL, " \n");
 		}
+<<<<<<< HEAD
 		/*runcmd(rgv, arv, cmd, c, envp); envir */
 		mychild = fork();
 		if (mychild == -1)
@@ -90,5 +81,9 @@ void prompt(char **arv, char **envp, bool flg)
 
 	}
 	free(c);
+=======
+		runcmd(rgv, arv, envp); /* envir */
+	}
+>>>>>>> 29a4fe26b4dd1abcf797c8b43a0d48cb4be9fb60
 	free(cmd);
 }

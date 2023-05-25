@@ -20,6 +20,7 @@ void prompt(char **arv, char **envp, bool flg)
 	ssize_t num_c = 0;
 	char *cmd = NULL, *rgv[MAX_C];
 	int x/*, stat,path*/;
+	denum *c = malloc(sizeof(struct denum));
 
 	while (1)
 	{
@@ -29,6 +30,7 @@ void prompt(char **arv, char **envp, bool flg)
 		num_c = getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/
 		{
+			write(STDOUT_FILENO, "\n", 1);
 			free(cmd);
 			exit(EXIT_SUCCESS);
 		}
@@ -46,7 +48,8 @@ void prompt(char **arv, char **envp, bool flg)
 			x++;
 			rgv[x] = strtok(NULL, " \n");
 		}
-		runcmd(rgv, arv, cmd, envp); /* envir */
+		runcmd(rgv, arv, cmd, c, envp); /* envir */
 	}
+	free(c);
 	free(cmd);
 }

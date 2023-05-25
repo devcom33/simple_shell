@@ -20,6 +20,7 @@ char *trim(char *cmd)
 	}
 	_strncpy(cpcmd, cmd + i, len);
 	cpcmd[len] = '\0';
-
-	return (cpcmd);
+	_strcpy(cmd, cpcmd);
+	free(cpcmd);
+	return (cmd);
 }

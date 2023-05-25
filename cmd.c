@@ -60,6 +60,7 @@ void prompt(char **arv, char **envp, bool flg)
 		mychild = fork();
 		if (mychild == -1)
 		{
+			free(cmd);
 			perror("Process Error");
 			exit(EXIT_FAILURE);
 		}

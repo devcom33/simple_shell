@@ -16,12 +16,14 @@ void sig_handler(int num)
  */
 void prompt(char **arv, char **envp, bool flg)
 {
+	pid_t mychild;
 	size_t n = 0;
 	ssize_t num_c = 0;
 	char *cmd = NULL, *rgv[MAX_C];
-	int x/*, stat,path*/;
+	int x, stat/*,path*/;
 	denum *c = malloc(sizeof(struct denum));
 
+	c->cnt = 0;
 	while (1)
 	{
 		if (flg && isatty(STDIN_FILENO))
@@ -48,7 +50,32 @@ void prompt(char **arv, char **envp, bool flg)
 			x++;
 			rgv[x] = strtok(NULL, " \n");
 		}
-		runcmd(rgv, arv, cmd, c, envp); /* envir */
+		/*runcmd(rgv, arv, cmd, c, envp); envir */
+		mychild = fork();
+		if (mychild == -1)
+		{
+			perror("Process Error");
+			exit(EXIT_FAILURE);
+		}
+		if (mychild == 0)
+		{
+			if (execve(rgv[0], rgv, envp) == (-1))
+			{
+			/*write(STDOUT_FILENO, arv[0], _strlen(arv[0]));
+			write(STDOUT_FILENO, ": No such file or directory",
+			_strlen(": No such file or directory"));
+			write(STDOUT_FILENO, "\n", 1);*/
+				c->cnt += 1;
+				geterror(c, arv, cmd);
+			}
+			exit(EXIT_FAILURE);
+		}
+		if (waitpid(mychild, &stat, 0) == -1)
+		{
+			perror("wait err");
+			exit(EXIT_FAILURE);
+		}
+
 	}
 	free(c);
 	free(cmd);

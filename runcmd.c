@@ -5,14 +5,13 @@
  * @arv: arv argument
  * @envp: envp argument
  */
-void runcmd(char **rgv, char **arv, char *cmd, char **envp)
+void runcmd(char **rgv, char **arv, char *cmd, denum *c,char **envp)
 {
 	pid_t mychild;
 	int stat;
-	denum *c = malloc(sizeof(struct denum));
+	/*denum *c = malloc(sizeof(struct denum));*/
 
 	mychild = fork();
-
 	if (mychild == -1)
 	{
 		perror("Process Error");

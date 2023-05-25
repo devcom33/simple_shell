@@ -31,8 +31,9 @@ void runcmd(char **rgv, char **arv, char **envp)
 		}
 		exit(EXIT_FAILURE);
 	}
-	else
+	if (waitpid(mychild, &stat, 0) == -1)
 	{
-		wait(&stat);
+		perror("wait err");
+		exit(EXIT_FAILURE);
 	}
 }

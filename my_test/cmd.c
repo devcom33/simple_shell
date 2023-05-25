@@ -15,7 +15,7 @@ void prompt(char **arv, char **envp)
 	{
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", _strlen("$ "));
-		num_c = getline(&cmd, &n, stdin);
+		num_c = _getline(&cmd, &n, stdin);
 		if (num_c == -1) /*handles the end file case*/
 		{
 			free(cmd);

@@ -26,6 +26,9 @@ char *trim(char *cmd);
 char *_strncpy(char *dest, char *src, int n);
 /**/
 void handle_pipe(char* cmd);
+void *_realloc(void *ptr, unsigned int prev_size, unsigned int new_size);
+void asgn_lptr(char **lptr, size_t *n, char *buffer, size_t b);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 /*void geterror(int cnt, char **arv, char *cmd);*/
 /*void search_path(char **rgv, char *cmd, char **envp);*/
 #endif

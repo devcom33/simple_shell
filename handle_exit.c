@@ -12,6 +12,7 @@ void handle_exit(char *cmd)
 	{
 		free(cmd);
 		exit(2);
-		exit(EXIT_SUCCESS);
 	}
+	else
+		exit(EXIT_SUCCESS);
 }

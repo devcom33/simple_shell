@@ -13,6 +13,4 @@ void handle_exit(char *cmd)
 		free(cmd);
 		exit(2);
 	}
-	else
-		exit(EXIT_SUCCESS);
 }

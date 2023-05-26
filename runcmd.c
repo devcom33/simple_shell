@@ -30,7 +30,6 @@ void runcmd(char **rgv, char **arv, char **envp)
 			/*geterror(c -> cnt, arv, cmd);*/
 		}
 		exit(EXIT_FAILURE);
-		 exit(2);
 	}
 	else
 	{

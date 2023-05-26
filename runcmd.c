@@ -16,7 +16,8 @@ void runcmd(char **rgv, char **arv, char **envp)
 	if (mychild == -1)
 	{
 		perror("Process Error");
-		exit(EXIT_FAILURE);
+		/*exit(EXIT_FAILURE);*/
+		exit(2);
 	}
 	if (mychild == 0)
 	{
@@ -29,7 +30,8 @@ void runcmd(char **rgv, char **arv, char **envp)
 			write(STDOUT_FILENO, "\n", 1);
 			/*geterror(c -> cnt, arv, cmd);*/
 		}
-		exit(EXIT_FAILURE);
+		/*exit(EXIT_FAILURE);*/
+		exit(2);
 	}
 	else
 	{

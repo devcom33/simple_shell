@@ -30,8 +30,7 @@ void prompt(char **arv, char **envp, bool flg)
 		if (num_c == -1) /*handles the end file case*/
 		{
 			free(cmd);
-			/*exit(EXIT_SUCCESS);*/
-			 exit(2);
+			exit(EXIT_SUCCESS);
 		}
 		if (cmd[num_c - 1] == '\n')
 			cmd[num_c - 1] = '\0';

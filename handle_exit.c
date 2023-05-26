@@ -11,6 +11,6 @@ void handle_exit(char *cmd)
 	if (_strcmp("exit", cmd) == 0)
 	{
 		free(cmd);
-		exit(2);
+		exit(EXIT_SUCCESS);
 	}
 }

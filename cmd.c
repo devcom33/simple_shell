@@ -49,5 +49,5 @@ void prompt(char **arv, char **envp, bool flg)
 		}
 		runcmd(rgv, arv, envp); /* envir */
 	}
-	free(cmd), exit(2);
+	free(cmd), exit(EXIT_SUCCESS);
 }

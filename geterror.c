@@ -1,5 +1,8 @@
 #include "main.h"
 /**
+ * intlen - a func that ... later
+ * @n: a parameter
+ * Return: the lenth.
  */
 int intlen(int n)
 {
@@ -24,6 +27,9 @@ int intlen(int n)
 	return (len);
 }
 /**
+ * _itoa - a func that .. later
+ * @num: a passing param.
+ * Return: buff if not NULL.
  */
 char *_itoa(int num)
 {
@@ -45,19 +51,20 @@ char *_itoa(int num)
 	else
 		n = num;
 	len--;
-	do
-	{
+
+	do {
 		*(buff + len) = (n % 10) + '0';
 		n /= 10;
 		len--;
-	}while (n > 0);
-	return (buff);
+	} while (n > 0);
+		return (buff);
 }
 /**
- * runcmd - a function that run command
- * @rgv: rgv argument
+ * geterror - a function that run command
+ * @n: argument
  * @arv: arv argument
- * @envp: envp argument
+ * @cmd: the command.
+ * Return: void.
  */
 void geterror(denum *n, char **arv, char *cmd)
 {

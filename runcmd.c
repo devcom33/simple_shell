@@ -29,9 +29,8 @@ void runcmd(char **rgv, char **arv, char **envp)
 			_strlen(": No such file or directory"));
 			write(STDOUT_FILENO, "\n", 1);
 			/*geterror(c -> cnt, arv, cmd);*/
-		}
-		/*exit(EXIT_FAILURE);*/
-		exit(2);
+		}	
+		exit(EXIT_FAILURE);
 	}
 	else
 	{

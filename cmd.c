@@ -30,7 +30,7 @@ void prompt(char **arv, char **envp, bool flg)
 		if (num_c == -1) /*handles the end file case*/
 		{
 			free(cmd);
-			exit(2);
+			exit(EXIT_FAILURE);
 		}
 		if (cmd[num_c - 1] == '\n')
 			cmd[num_c - 1] = '\0';
@@ -48,5 +48,5 @@ void prompt(char **arv, char **envp, bool flg)
 		}
 		runcmd(rgv, arv, envp); /* envir */
 	}
-	free(cmd), exit(2);
+	free(cmd), exit(EXIT_SUCCESS);
 }

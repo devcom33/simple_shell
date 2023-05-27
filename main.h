@@ -22,7 +22,7 @@ char *_strcat(char *dest, char *src);
 char *handle_path(char **rgv, char *cmd);
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
-void handle_exit(char *cmd, int cm);
+void handle_exit(char *cmd);
 void runcmd(char **rgv, char **arv, char **envp);
 char *trim(char *cmd);
 char *_strncpy(char *dest, char *src, int n);

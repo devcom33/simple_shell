@@ -6,18 +6,11 @@
  * Return: nothing.
  *
  */
-void handle_exit(char *cmd, int cm)
+void handle_exit(char *cmd)
 {
 	if (_strcmp("exit", cmd) == 0)
 	{
 		free(cmd);
-		if (cm == 1)
-		{
-			exit(EXIT_SUCCESS);
-		}
-		else
-		{
-			exit(2);
-		}
+		exit(EXIT_SUCCESS);
 	}
 }

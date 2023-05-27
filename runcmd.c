@@ -26,7 +26,7 @@ int _wexitstatus(int status)
  */
 void runcmd(char **rgv, char **arv, char **envp)
 {
-	pid_t mychild, ter_child;
+	pid_t mychild;
 	int stat;
 	/*denum *c = malloc(sizeof(struct denum));*/
 
@@ -53,17 +53,10 @@ void runcmd(char **rgv, char **arv, char **envp)
 	}
 	else
 	{
-			ter_child = wait(&stat);
-			if (ter_child == mychild)
+			wait(&stat);
+			if (_wifexited(stat))
 			{
-				if (_wifexited(stat))
-				{
 					exit(_wexitstatus(stat));
-				}
-				else
-				{
-					exit(2);
-				}
 			}
 	}
 }

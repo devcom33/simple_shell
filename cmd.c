@@ -19,13 +19,12 @@ void prompt(char **arv, char **envp, bool flg)
 	size_t n = 0;
 	ssize_t num_c = 0;
 	char *cmd = NULL, *rgv[MAX_C];
-	int x, c = 0;
+	int x;
 
 	while (1)
 	{
 		if (flg && isatty(STDIN_FILENO))
 		{
-			c = 1;
 			write(STDOUT_FILENO, "$ ", _strlen("$ "));
 		}
 		signal(SIGINT, sig_handler);
@@ -42,7 +41,7 @@ void prompt(char **arv, char **envp, bool flg)
 			continue;
 		x = 0;
 		rgv[x] = strtok(cmd, " \n");
-		handle_exit(cmd, c);
+		handle_exit(cmd);
 		handle_path(rgv, cmd);
 		while (rgv[x])
 		{
